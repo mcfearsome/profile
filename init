@@ -1,3 +1,7 @@
+function pid {
+   ps xc | grep "$1" | awk '{print $1}'
+}
+
 profile_push() {
   ssh $1 "rm -rf .profile.d"
   scp -r "${HOME}/.profile.d" $1:.profile.d
@@ -21,4 +25,8 @@ if [ -e "${PLATFORM_PATH}" ]; then
   load_conf "${PLATFORM_PATH}"
 else
   load_conf "${BASE_PATH}"
+fi
+
+if [ -f /etc/bash_completion ]; then
+   . /etc/bash_completion
 fi
