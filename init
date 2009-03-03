@@ -10,7 +10,6 @@ profile_push() {
 
 load_conf() {
   for CONF in "$1/"*.conf; do
-    # echo "Loading ${CONF}..." # for debugging
     source "${CONF}"
   done
 }
@@ -27,6 +26,8 @@ else
   load_conf "${BASE_PATH}"
 fi
 
+
 if [ -f /etc/bash_completion ]; then
    . /etc/bash_completion
 fi
+
