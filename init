@@ -26,11 +26,9 @@ else
   load_conf "${BASE_PATH}"
 fi
 
-
-
-if [ -f /etc/bash_completion ]; then
-   . /etc/bash_completion
+if [[ "$TERM_PROGRAM" == "DTerm" ]]; then
+   source "${BASE_PATH}/dterm"
 fi
-
-source ~/.tabtab.bash
-
+shopt -s checkwinsize
+# source ~/.tabtab.bash
+# shopt -s globstar autocd
